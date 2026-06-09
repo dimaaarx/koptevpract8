@@ -1,4 +1,5 @@
-package PACKAGE_NAME;
-
-public class EmptyVectorException {
+public class EmptyVectorException extends Exception {
+    public EmptyVectorException(String message) {
+        super(message);
+    }
 }
