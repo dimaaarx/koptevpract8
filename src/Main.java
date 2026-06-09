@@ -1,15 +1,49 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        try {
+            MyVector vector = new MyVector(3);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+            vector.add(10);
+            vector.add(20);
+            vector.add(30);
+
+            vector.print();
+
+            vector.add(40);
+            vector.print();
+
+            vector.addFirst(5);
+            vector.print();
+
+            vector.addAt(2, 15);
+            vector.print();
+
+            System.out.println("Element at index 3: " + vector.get(3));
+            System.out.println("Size: " + vector.size());
+            System.out.println("Capacity: " + vector.capacity());
+
+            vector.removeAt(1);
+            vector.print();
+
+            vector.clear();
+            vector.print();
+
+            vector.removeAt(0);
+
+        } catch (InvalidCapacityException e) {
+            System.out.println("Capacity error: " + e.getMessage());
+
+        } catch (EmptyVectorException e) {
+            System.out.println("Empty vector error: " + e.getMessage());
+
+        } catch (InvalidIndexException e) {
+            System.out.println("Index error: " + e.getMessage());
+
+        } catch (NullValueException e) {
+            System.out.println("Null value error: " + e.getMessage());
+
+        } catch (VectorOverflowException e) {
+            System.out.println("Overflow error: " + e.getMessage());
         }
     }
 }
